@@ -4,7 +4,9 @@ If you get _'permission denied'_ error then run `chmod +x gradlew` in terminal o
 
 ---
 
-## [ Restaurant table reservation service ] - Origin code
+## [ Restaurant table reservation service ]
+
+### Origin status (06.05.2022)
 
 * Make a reservation
 1. Create a user account - register your name / email / phone number to reserve a table → _No name input function_
@@ -18,4 +20,8 @@ If you get _'permission denied'_ error then run `chmod +x gradlew` in terminal o
 * Notice  
 1. Notice if there are no seats available at the desired date and time - "Not Available" / "Search for another date and time"→ _Not implemented yet_
 2. When reservation is complete - "Reservation has been completed for date/time/person"  
-3. When canceling a reservation - "Cancellation is confirmed"  
+3. When canceling a reservation - "Cancellation is confirmed"    
+
+---
+
+### Developed function (18.05.2022)
