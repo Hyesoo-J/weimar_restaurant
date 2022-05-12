@@ -31,6 +31,7 @@ public class App {
         }
         manager.saveUser(new User("abc", "123"));
         manager.saveUser(new User("xyf", "123456"));
+        manager.saveUser(new User("test", "test"));
     }
 
 
