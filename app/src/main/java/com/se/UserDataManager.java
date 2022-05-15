@@ -4,9 +4,8 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Loads and saves user data from/in csv file
- */
+/* Loads and saves user data from/in CSV file */
+
 public class UserDataManager {
 
     final Map<String, User> users = new HashMap<>();
@@ -18,19 +17,15 @@ public class UserDataManager {
     }
 
     public Map<String, User> loadAllUsers() {
-
         users.clear();
-
         users.putAll(readUserDataFromDisk());
-
         return users;
 
     }
 
-    public int authenticateUser(String email, String pw) {
-        if (!checkUser(email)) return -1; // error user doesnt exist
-        if (pw.equals(users.get(email).password))
-            return 0;
+    public int authenticateUser(String email, String name) {
+        if (!checkUser(email)) return -1; // error user doesn't exist
+        if (name.equals(users.get(email).name))return 0;
 
         return 1;
     }
@@ -40,8 +35,8 @@ public class UserDataManager {
         return users.containsKey(email);
     }
 
+    
     private void writeUserDataToDisk(Map<String, User> users) {
-
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(fileName));
@@ -62,6 +57,7 @@ public class UserDataManager {
 
     }
 
+    
     private Map<String, User> readUserDataFromDisk() {
 
         File file = new File(fileName);
@@ -81,8 +77,9 @@ public class UserDataManager {
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
                 String email = data[0];
-                String password = data[1];
-                users.put(email, new User(email, password));
+                String name = data[1];
+
+                users.put(email, new User(email,name));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
