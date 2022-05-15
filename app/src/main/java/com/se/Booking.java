@@ -12,7 +12,7 @@ public class Booking {
                 "Email='" + email + '\'' +
                 "| Date='" + date + '\'' +
                 "| Time='" + time + '\'' +
-                "| People=" + noOfPeople +
+                "| People='" + noOfPeople + '\'' +
                 ']';
     }
 }
