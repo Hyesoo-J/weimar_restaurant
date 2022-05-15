@@ -17,11 +17,11 @@ public class SignupScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        signupData = new String[2];// username # password
+        signupData = new String[2];// email and name
 
-        User user = new User("", "");
+        User user = new User("","");
 
-        questions.add(new Question("New email:", Question.Format.TXT).setAnswerListener(ans -> {
+        questions.add(new Question("New Email Address:", Question.Format.TXT).setAnswerListener(ans -> {
             user.email = ans;
             boolean exists = userDataManager.checkUser(user.email);
             if (exists) {
@@ -29,8 +29,8 @@ public class SignupScreen extends Screen {
                     questions.remove(questions.size() - 1);
                 }));
             } else {
-                questions.add(new Question("New password:", Question.Format.TXT).setAnswerListener(ans2 -> {
-                    user.password = ans2;
+                questions.add(new Question("New Customer's Name:", Question.Format.TXT).setAnswerListener(ans2 -> {
+                    user.name = ans2;
                     Screen.userEmail = user.email;
                     userDataManager.saveUser(user);
                     super.returnData = "okay";
