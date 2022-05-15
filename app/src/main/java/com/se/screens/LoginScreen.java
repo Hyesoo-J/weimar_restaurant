@@ -17,16 +17,16 @@ public class LoginScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        loginData = new String[2];// username # password
+        loginData = new String[2];
 
         User user = new User("", "");
         questions.add(new Question("Email:", Question.Format.TXT).setAnswerListener(ans -> {
             user.email = ans;
         }));
-        questions.add(new Question("Password:", Question.Format.TXT).setAnswerListener(ans -> {
+        questions.add(new Question("Name:", Question.Format.TXT).setAnswerListener(ans -> {
 
-            user.password = ans;
-            int valid = userDataManager.authenticateUser(user.email, user.password);
+            user.name = ans;
+            int valid = userDataManager.authenticateUser(user.email, user.name);
 
             switch (valid) {
                 case 1:
