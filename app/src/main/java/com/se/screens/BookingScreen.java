@@ -16,13 +16,13 @@ public class BookingScreen extends Screen {
     @Override
     protected void initQuestions() {
 
-        questions.add(new Question("What Date? (yyyy-mm-dd)", Question.Format.DATE).setAnswerListener(ans -> {
+        questions.add(new Question("What Date?(yyyy-mm-dd)", Question.Format.DATE).setAnswerListener(ans -> {
             newBooking.date = ans;
         }));
         questions.add(new Question("What Time?(hh:mm)", Question.Format.TXT).setAnswerListener(ans -> {
             newBooking.time = ans;
         }));
-        questions.add(new Question("How many people?(Max 30)", Question.Format.NUM).setAnswerListener(ans -> {
+        questions.add(new Question("How many people?(Max30)", Question.Format.NUM).setAnswerListener(ans -> {
             newBooking.noOfPeople = Integer.parseInt(ans);
 
             boolean available = manager.checkAvailibility(newBooking.noOfPeople);
