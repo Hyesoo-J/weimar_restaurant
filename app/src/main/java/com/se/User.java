@@ -3,15 +3,15 @@ package com.se;
 public class User {
 
     public String email;
-    public String password;
+    public String name;
 
-    public User(String email, String password) {
+    public User(String email, String name) {
         this.email = email;
-        this.password = password;
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return email + ',' + password;
+        return email + ',' + name;
     }
 }
