@@ -9,10 +9,10 @@ public class Booking {
     @Override
     public String toString() {
         return "[" +
-                "email='" + email + '\'' +
-                "| time='" + time + '\'' +
-                "| date='" + date + '\'' +
-                "| noOfPeople=" + noOfPeople +
+                "Email='" + email + '\'' +
+                "| Date='" + date + '\'' +
+                "| Time='" + time + '\'' +
+                "| People=" + noOfPeople +
                 ']';
     }
 }
