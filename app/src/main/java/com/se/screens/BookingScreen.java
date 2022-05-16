@@ -28,6 +28,8 @@ public class BookingScreen extends Screen {
             boolean available = manager.checkAvailibility(newBooking.noOfPeople);
             if (available) {
                 newBooking.email = Screen.userEmail;
+                newBooking.name = Screen.userName;
+                newBooking.number = Screen.userNumber;
                 manager.bookingList.add(newBooking);
                 questions.add(new Question("Confirmed!\nBooking Details:\n" + newBooking, Question.Format.NULL).setAnswerListener(ans1 -> {
                     questions.remove(questions.size() - 1);
