@@ -23,7 +23,7 @@ public class CancelBookingScreen extends Screen {
 
         StringBuilder builder = new StringBuilder();
 
-        int idx = 1;
+        int idx = 1; //0
         builder.append("Please enter the reservation number you wish to cancel\n");
         for (Booking booking : manager.bookingList) {
             if (booking.email.equals(Screen.userEmail)) {
