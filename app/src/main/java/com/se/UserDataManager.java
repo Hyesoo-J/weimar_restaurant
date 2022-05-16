@@ -78,14 +78,24 @@ public class UserDataManager {
                 String[] data = line.split(",");
                 String email = data[0];
                 String name = data[1];
+                String number = data[2];
 
-                users.put(email, new User(email,name));
+                users.put(email, new User(email,name,number));
             }
-        } catch (FileNotFoundException e) {
+        } 
+        
+          catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } 
+          catch (IOException e) {
             e.printStackTrace();
-        } finally {
+        } 
+        
+          catch (ArrayIndexOutOfBoundsException e) {
+        	System.out.println(e.toString());
+          }
+        
+          finally {
             try {
                 br.close();
             } catch (IOException e) {
