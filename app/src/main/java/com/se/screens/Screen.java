@@ -12,6 +12,8 @@ public abstract class Screen {
     protected String returnData; // current active data
 
     static String userEmail = "";
+    static String userName = "";
+    static String userNumber = "";
 
     public Screen() {
         initQuestions();
