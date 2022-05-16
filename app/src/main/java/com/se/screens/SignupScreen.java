@@ -32,6 +32,7 @@ public class SignupScreen extends Screen {
                 questions.add(new Question("New Customer's Name:", Question.Format.TXT).setAnswerListener(ans2 -> {
                     user.name = ans2;
                     Screen.userEmail = user.email;
+                    Screen.userName = user.name;
                     userDataManager.saveUser(user);
                     super.returnData = "okay";
                     questions.remove(questions.size() - 1);
