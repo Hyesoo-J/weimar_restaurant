@@ -17,16 +17,17 @@ public class LoginScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        loginData = new String[2];
+        loginData = new String[3];
 
-        User user = new User("", "");
+        User user = new User("", "", "");
         questions.add(new Question("Email:", Question.Format.TXT).setAnswerListener(ans -> {
             user.email = ans;
         }));
+        
         questions.add(new Question("Name:", Question.Format.TXT).setAnswerListener(ans -> {
-
             user.name = ans;
-            int valid = userDataManager.authenticateUser(user.email, user.name);
+            
+            int valid = userDataManager.authenticateUser(user.email, user.name, user.number);
 
             switch (valid) {
                 case 1:
@@ -41,13 +42,14 @@ public class LoginScreen extends Screen {
                     break;
                 case 0:
                     Screen.userEmail = user.email;
+                    Screen.userName = user.name;
+                    Screen.userNumber = user.number;
                     super.returnData = "okay";
                     break;
 
             }
 
         }));
-
     }
 
     @Override

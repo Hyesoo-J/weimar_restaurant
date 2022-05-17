@@ -9,10 +9,11 @@ public class HomeScreen extends Screen {
 		questions.add(new Question("""
 				Please select the operation you would like to perform
 				1. New Booking
-				2. View Bookings
+				2. View Booking
 				3. Cancel Booking
-				4. Logout
-				5. Exit""", Question.Format.NUM));
+				4. Change Booking
+				5. Logout
+				6. Exit""", Question.Format.NUM));
 
 	}
 

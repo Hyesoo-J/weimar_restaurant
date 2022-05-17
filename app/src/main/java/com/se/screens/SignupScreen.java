@@ -17,9 +17,9 @@ public class SignupScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        signupData = new String[2];// email and name
+        signupData = new String[3];// email and name
 
-        User user = new User("","");
+        User user = new User("","","");
 
         questions.add(new Question("New Email Address:", Question.Format.TXT).setAnswerListener(ans -> {
             user.email = ans;
@@ -31,12 +31,23 @@ public class SignupScreen extends Screen {
             } else {
                 questions.add(new Question("New Customer's Name:", Question.Format.TXT).setAnswerListener(ans2 -> {
                     user.name = ans2;
+                
+                questions.add(new Question("Contact Number:", Question.Format.TXT).setAnswerListener(ans3 -> {
+                    user.number = ans3;
+                    
+                    
+                    
                     Screen.userEmail = user.email;
                     Screen.userName = user.name;
+                    Screen.userNumber = user.number;
                     userDataManager.saveUser(user);
                     super.returnData = "okay";
                     questions.remove(questions.size() - 1);
+                
+                
                 }));
+            }));
+                
             }
         }));
 

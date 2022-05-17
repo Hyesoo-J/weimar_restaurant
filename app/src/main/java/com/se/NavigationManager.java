@@ -15,6 +15,7 @@ public class NavigationManager {
     BookingScreen bookingScreen;
     ViewBookingsScreen viewBookingsScreen;
     CancelBookingScreen cancelBookingScreen;
+    ChangeBookingScreen changeBookingScreen;
 
     public NavigationManager(UserDataManager userDataManager, RestarauntManager manager) {
         this.userDataManager = userDataManager;
@@ -26,6 +27,7 @@ public class NavigationManager {
         bookingScreen = new BookingScreen(manager);
         viewBookingsScreen = new ViewBookingsScreen(manager);
         cancelBookingScreen = new CancelBookingScreen(manager);
+        changeBookingScreen = new ChangeBookingScreen(manager);
 
     }
 
@@ -70,9 +72,13 @@ public class NavigationManager {
                     cancelBookingScreen.showQuestions();
                     break;
                 case "4":
-                    start();
-                    break loop;
+                    changeBookingScreen.showQuestions();
+                    break;
                 case "5":
+                	System.out.println("Logout!");
+                	start();
+                    break loop;
+                case "6":
                     System.out.println("Bye!");
                     break loop;
                 default:
