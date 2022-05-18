@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-
+import java.util.Objects;
 
 import com.se.screens.Screen;
 
@@ -29,7 +28,6 @@ public class RestarauntManager {
     public void saveBooking (Booking book) {
     	bookingList.add(book);
     	calendar.put(book.id, book);
-    	calendar.forEach((key, value) -> System.out.println(key + ":" + value));
         writeBookToDisk(calendar);
     }
 
@@ -134,6 +132,18 @@ public class RestarauntManager {
 		return seatsavailable>=0;
 
 
+	}
+	
+	
+	public boolean checkTimeAvailibility(String date, String time) {
+		
+	
+		for (Booking b : bookingList) {
+			if (Objects.equals(date, b.date) && Objects.equals(time, b.time)) {				
+				return false;
+			}
+		}
+		return true;
 	}
 
 	

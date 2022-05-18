@@ -16,6 +16,7 @@ public class BookingScreen extends Screen {
     protected void initQuestions() {
 
         questions.add(new Question("What Date?(yyyy-mm-dd)", Question.Format.DATE).setAnswerListener(ans -> {
+      
         	 newBooking.date = ans;
         }));
         questions.add(new Question("What Time?(hh:mm)", Question.Format.TXT).setAnswerListener(ans -> {
@@ -24,8 +25,11 @@ public class BookingScreen extends Screen {
         questions.add(new Question("How many people?(Max30)", Question.Format.NUM).setAnswerListener(ans -> {
         	newBooking.noOfPeople = ans;
 
-            boolean available = manager.checkAvailibility(newBooking.noOfPeople);
-            if (available) {
+        	 boolean available = manager.checkAvailibility(newBooking.noOfPeople);
+             boolean dateAvaliable =  manager.checkTimeAvailibility(newBooking.date, newBooking.time );
+             
+             if (available) {
+             	if(dateAvaliable) {
                 newBooking.email = Screen.userEmail;
                 newBooking.id = Integer.toString(manager.loadAllBooked().size());
                 manager.saveBooking(newBooking);
@@ -38,6 +42,12 @@ public class BookingScreen extends Screen {
                         ']', Question.Format.NULL).setAnswerListener(ans1 -> {
                     questions.remove(questions.size() - 1);
                 }));
+                
+             	}else {
+                    questions.add(new Question("Not Confirmed \n Not avaliable date :(", Question.Format.NULL).setAnswerListener(ans1 -> {
+                        questions.remove(questions.size() - 1);
+                }));
+                }
             } else {
                 questions.add(new Question("Not Confirmed\nNot enough seats :(", Question.Format.NULL).setAnswerListener(ans1 -> {
                     questions.remove(questions.size() - 1);

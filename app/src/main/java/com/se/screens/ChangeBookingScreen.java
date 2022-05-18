@@ -53,17 +53,25 @@ public class ChangeBookingScreen extends Screen {
                         newBooking.time = ans7;
                     }));
                     questions.add(new Question("How many people?(Max30)", Question.Format.NUM).setAnswerListener(ans8 -> {
-                        newBooking.noOfPeople = Integer.parseInt(ans8);
+                        newBooking.noOfPeople = ans8;
 
                         boolean available = manager.checkAvailibility(newBooking.noOfPeople);
+                        boolean dateAvaliable =  manager.checkTimeAvailibility(newBooking.date, newBooking.time);
+                        
                         if (available) {
-                            newBooking.email = Screen.userEmail;
-                            newBooking.name = Screen.userName;
-                            newBooking.number = Screen.userNumber;
-                            manager.bookingList.add(newBooking);
-                            questions.add(new Question("Confirmed!\nBooking Details:\n" + newBooking, Question.Format.NULL).setAnswerListener(ans1 -> {
-                                questions.remove(questions.size() - 1);
-                            }));
+                        	
+                        	if(dateAvaliable) {
+                        		newBooking.email = Screen.userEmail;
+                                questions.add(new Question("Confirmed!\nBooking Details:\n" + newBooking, Question.Format.NULL).setAnswerListener(ans1 -> {
+                                    questions.remove(questions.size() - 1);
+                                }));
+                        		
+                        	}else {
+                                questions.add(new Question("Not avaliable date :(", Question.Format.NULL).setAnswerListener(ans1 -> {
+                                    questions.remove(questions.size() - 1);
+                                }));
+                            }
+                            
                         } else {
                             questions.add(new Question("Not Confirmed\nNot enough seats :(", Question.Format.NULL).setAnswerListener(ans1 -> {
                                 questions.remove(questions.size() - 1);
