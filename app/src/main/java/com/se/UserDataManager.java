@@ -23,7 +23,7 @@ public class UserDataManager {
 
     }
 
-    public int authenticateUser(String email, String name) {
+    public int authenticateUser(String email, String name, String number) {
         if (!checkUser(email)) return -1; // error user doesn't exist
         if (name.equals(users.get(email).name))return 0;
 
