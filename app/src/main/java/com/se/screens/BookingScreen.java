@@ -10,13 +10,13 @@ import com.se.RestarauntManager;
 public class BookingScreen extends Screen {
 
     RestarauntManager manager;
-    Booking newBooking;
+    Booking newBooking = new Booking("","","","","");;
     public BookingScreen(RestarauntManager manager) {
         this.manager = manager;
     }
 
     @Override
-    protected void initQuestions() {
+	public void setupBeforeShowingQuestions() {
 
         questions.add(new Question("What Date?(yyyy-mm-dd)", Question.Format.DATE).setAnswerListener(ans -> {
         	
@@ -40,24 +40,19 @@ public class BookingScreen extends Screen {
                             newBooking.id = Integer.toString(manager.loadAllBooked().size());
                             manager.saveBooking(newBooking);
                             
-                            questions.add(new Question("Confirmed!\nBooking Details:\n" + "[" +
+                            warningMssg("Confirmed!\nBooking Details:\n" + "[" +
                                     "Email='" + newBooking.email + '\'' +
                                     "| Date='" + newBooking.date + '\'' +
                                     "| Time='" + newBooking.time + '\'' +
                                     "| People='" + newBooking.noOfPeople + '\'' +
-                                    ']', Question.Format.NULL).setAnswerListener(ans1 -> {
-                                questions.remove(questions.size() - 1);
-                            }));
+                                    ']');
                             
                          	}else {
-                                questions.add(new Question("Not Confirmed \n Not avaliable date :(", Question.Format.NULL).setAnswerListener(ans1 -> {
-                                    questions.remove(questions.size() - 1);
-                            }));
+                         		 warningMssg("Not Confirmed \n Not avaliable date :(");
+                           
                             }
                         } else {
-                            questions.add(new Question("Not Confirmed\nNot enough seats :(", Question.Format.NULL).setAnswerListener(ans1 -> {
-                                questions.remove(questions.size() - 1);
-                            }));
+                        	warningMssg("Not Confirmed\nNot enough seats :(");
                         }
 
                     }));
@@ -79,14 +74,19 @@ public class BookingScreen extends Screen {
 
     
     public void warningMssg(String mssg) {
-    	 questions.add(new Question(mssg, Question.Format.NULL).setAnswerListener(ans1 -> {
-             questions.remove(questions.size() - 1); 
-        }));
-    	
-    }
+   	 questions.add(new Question(mssg, Question.Format.NULL).setAnswerListener(ans1 -> {
+            questions.remove(questions.size() - 1); 
+            questions.clear();
+            manager.loadAllBooked();
+            
+       }));
+   	
+   }
     
     @Override
-    public void setupBeforeShowingQuestions() {
-        newBooking = new Booking("","","","","");
+    protected void initQuestions() {
+
+
     }
+
 }
