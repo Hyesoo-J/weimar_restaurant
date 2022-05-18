@@ -82,6 +82,7 @@ public class BookingScreen extends Screen {
     	 questions.add(new Question(mssg, Question.Format.NULL).setAnswerListener(ans1 -> {
              questions.remove(questions.size() - 1); 
         }));
+    	
     }
     
     @Override
