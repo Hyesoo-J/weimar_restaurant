@@ -1,22 +1,25 @@
 package com.se;
 
 public class Booking {
+	public String id;
     public String email;
-    public String name;
-    public String number;
     public String time;
     public String date;
-    public int noOfPeople;
+    public String noOfPeople;
 
+    
+    public Booking (String id, String email, String time , String date, String noOfPeople) {
+    	this.id = id;
+        this.email = email;
+        this.time = time;
+        this.date = date;
+        this.noOfPeople = noOfPeople;
+    }
     @Override
     public String toString() {
-        return "[" +
-                "Email='" + email + '\'' +
-                "| Name='" + name + '\'' +
-                "| Phone='" + number + '\'' +
-                "| Date='" + date + '\'' +
-                "| Time='" + time + '\'' +
-                "| People='" + noOfPeople + '\'' +
-                ']';
+        return id+','+ email + ',' + time + ',' + date + ',' + noOfPeople;
+        		
+   
     }
+	
 }

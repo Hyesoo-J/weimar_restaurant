@@ -34,9 +34,7 @@ public class SignupScreen extends Screen {
                 
                 questions.add(new Question("Contact Number:", Question.Format.TXT).setAnswerListener(ans3 -> {
                     user.number = ans3;
-                    
-                    
-                    
+                                   
                     Screen.userEmail = user.email;
                     Screen.userName = user.name;
                     Screen.userNumber = user.number;

@@ -18,7 +18,9 @@ public class App {
         userDataManager = new UserDataManager();
         navigationManager = new NavigationManager(userDataManager, manager);
         userDataManager.loadAllUsers();
+        manager.loadAllBooked();
         navigationManager.start();
+        
     }
 }
 
