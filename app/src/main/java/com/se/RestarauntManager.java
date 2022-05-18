@@ -39,9 +39,8 @@ public class RestarauntManager {
         return calendar;
 
     }
-	    
-	   
-    
+	       
+   
     private void writeBookToDisk(Map<String, Booking> calendar) {
         BufferedWriter bw = null;
         try {
@@ -111,11 +110,7 @@ public class RestarauntManager {
             }
         }
         return calendar;
-
     }
-
-	
-
 
 	public boolean checkAvailibility(String noOfPeople) {
 
