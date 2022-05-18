@@ -23,12 +23,12 @@ public class SignupScreen extends Screen {
         signupData = new String[3];// email and name
 
         User user = new User("","","");
-
+        
         questions.add(new Question(lang.option.equals("1") ? "New Email Address:" : "Neue Email Adresse:", Question.Format.TXT).setAnswerListener(ans -> {
             user.email = ans;
             boolean exists = userDataManager.checkUser(user.email);
             if (exists) {
-                questions.add(new Question(lang.option.equals("1") ? "Email exists. Please log in. " :"Email existiert. Bitte loggen Sie sich ein "  , Question.Format.NULL).setAnswerListener(ans1 -> {
+                questions.add(new Question(lang.option.equals("1") ? "Email exists. Please log in. " : lang.option+ "Email existiert. Bitte loggen Sie sich ein "  , Question.Format.NULL).setAnswerListener(ans1 -> {
                     questions.remove(questions.size() - 1);
                 }));
             } else {
