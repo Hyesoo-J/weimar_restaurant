@@ -16,6 +16,8 @@ public class NavigationManager {
     ViewBookingsScreen viewBookingsScreen;
     CancelBookingScreen cancelBookingScreen;
     ChangeBookingScreen changeBookingScreen;
+    
+    Language lang;
 
     public NavigationManager(UserDataManager userDataManager, RestarauntManager manager) {
         this.userDataManager = userDataManager;
@@ -48,7 +50,7 @@ public class NavigationManager {
     public void start() {
         clrscr();
         String result = firstScreen.showQuestions();
-        if (result.equalsIgnoreCase("y") || result.equalsIgnoreCase("yes")) {
+        if (result.equalsIgnoreCase("y") || result.equalsIgnoreCase("yes") || result.equalsIgnoreCase("ja") || result.equalsIgnoreCase("j")) {
             result = loginScreen.showQuestions();
         } else {
             result = signupScreen.showQuestions();
@@ -75,14 +77,14 @@ public class NavigationManager {
                     changeBookingScreen.showQuestions();
                     break;
                 case "5":
-                	System.out.println("Logout!");
+                	System.out.println(lang.option.equals("1") ? "Logout!":"Ausloggen" );
                 	start();
                     break loop;
                 case "6":
-                    System.out.println("Bye!");
+                    System.out.println(lang.option.equals("1") ? "Bye!":"Wiedersehen");
                     break loop;
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println(lang.option.equals("1") ? "Invalid option" : "Ungültige Option");
             }
             clrscr();
         }

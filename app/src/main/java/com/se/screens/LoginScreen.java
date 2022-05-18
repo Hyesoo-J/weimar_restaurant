@@ -1,10 +1,13 @@
 package com.se.screens;
 
+import com.se.Language;
 import com.se.Question;
 import com.se.User;
 import com.se.UserDataManager;
 
 public class LoginScreen extends Screen {
+	
+	 Language lang;
 
     private String[] loginData; // if several lines of input data need to be accessed
 
@@ -31,12 +34,12 @@ public class LoginScreen extends Screen {
 
             switch (valid) {
                 case 1:
-                    questions.add(new Question("incorrect credentials", Question.Format.NULL).setAnswerListener(ans1 -> {
+                    questions.add(new Question(lang.option.equals("1") ?"incorrect credentials": "Falsche Anmeldeinformationen" , Question.Format.NULL).setAnswerListener(ans1 -> {
                         questions.remove(questions.size() - 1);
                     }));
                     break;
                 case -1:
-                    questions.add(new Question("user not found", Question.Format.NULL).setAnswerListener(ans1 -> {
+                    questions.add(new Question(lang.option.equals("1") ?"user not found" :"Benutzer wurde nicht gefunden", Question.Format.NULL).setAnswerListener(ans1 -> {
                         questions.remove(questions.size() - 1);
                     }));
                     break;

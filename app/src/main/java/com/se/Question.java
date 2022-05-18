@@ -40,7 +40,11 @@ public class Question {
                 return ans.equalsIgnoreCase("Y") ||
                         ans.equalsIgnoreCase("N") ||
                         ans.equalsIgnoreCase("yes") ||
-                        ans.equalsIgnoreCase("no");
+                        ans.equalsIgnoreCase("no") || 
+                        ans.equalsIgnoreCase("J") ||
+                        ans.equalsIgnoreCase("N") ||
+                        ans.equalsIgnoreCase("ja") ||
+                        ans.equalsIgnoreCase("nein");
             }
             case DATE -> {
                 return true; // TODO check for date pattern

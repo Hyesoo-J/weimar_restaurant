@@ -1,11 +1,14 @@
 package com.se.screens;
 
+import com.se.Language;
 import com.se.Question;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Screen {
+	
+	Language lang;
 
     public ArrayList<Question> questions = new ArrayList<>();
     protected int currentIdx = 0;
@@ -59,7 +62,7 @@ public abstract class Screen {
                     }
                     break;
                 } else {
-                    System.out.println("Invalid answer :(");
+                    System.out.println(lang.option.equals("1") ? "Invalid answer :(" : "Ungültige Antwort :(");
                 }
 
             }
