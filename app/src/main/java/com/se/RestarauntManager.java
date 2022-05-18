@@ -30,6 +30,14 @@ public class RestarauntManager {
     	calendar.put(book.id, book);
         writeBookToDisk(calendar);
     }
+    
+    public void updateBooking (Booking book) {
+       	calendar.put(book.id, book);
+       	bookingList = new ArrayList<Booking>(calendar.values());
+        writeBookToDisk(calendar);
+    }
+
+  
 
 
     public Map<String, Booking> loadAllBooked() {
