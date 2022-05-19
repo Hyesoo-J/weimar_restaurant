@@ -1,4 +1,4 @@
-#### How to run   
+#### [ How to run ]   
 - java-gradle- template > app/src/main/java/ > come.se > App.java
 ---
 
