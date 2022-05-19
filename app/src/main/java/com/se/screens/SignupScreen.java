@@ -20,7 +20,13 @@ public class SignupScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        signupData = new String[3];// email and name
+        
+    }
+    
+    
+    @Override
+    public void setupBeforeShowingQuestions() {
+    	signupData = new String[3];// email and name
 
         User user = new User("","","");
         
@@ -53,8 +59,7 @@ public class SignupScreen extends Screen {
                 
             }
         }));
-
-
+    	
     }
 
     @Override

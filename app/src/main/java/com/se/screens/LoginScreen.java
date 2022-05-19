@@ -20,7 +20,12 @@ public class LoginScreen extends Screen {
     @Override
 
     protected void initQuestions() {
-        loginData = new String[3];
+        
+    }
+    
+    @Override
+    public void setupBeforeShowingQuestions() {
+    	loginData = new String[3];
 
         User user = new User("", "", "");
         questions.add(new Question("Email:", Question.Format.TXT).setAnswerListener(ans -> {
@@ -53,7 +58,10 @@ public class LoginScreen extends Screen {
             }
 
         }));
+    	
+    	
     }
+    
 
     @Override
     public void processData() {
