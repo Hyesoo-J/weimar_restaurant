@@ -3,7 +3,11 @@
 ---
 
 #### [ Restaurant table reservation service ]
-- Developed function (18.05.2022)
+- Developed origin function
+1. Added chaing booking menu  
+2. Partial updated of personal information(email/name/contact) and Date and Time input 
+    
+- Implemented new function
 1. Added English/German language selection function  
 2. Added function to save table reservation information(book.csv)
 ---
