@@ -1,27 +1,19 @@
-#### How to run
-Type `gradlew run` in terminal to run the app.  
-If you get _'permission denied'_ error then run `chmod +x gradlew` in terminal once before the first command. 
-
+#### [ How to run ]   
+- java-gradle- template > app/src/main/java/ > come.se > App.java
 ---
 
-## [ Restaurant table reservation service ]
-
-### Origin status (06.05.2022)
-
-* Make a reservation
-1. Create a user account - register your name / email / phone number to reserve a table → _No name input function_
-2. Date - Year / Month / Day  
-3. Reservation time for restaurant - 10 am to 10 pm → _Not implemented yet_
-4. Number of reservable seats (number of people) - At least 1 person (enter a number greater than 1) → _Not implemented yet_
-
-* Cancellation  
-1. Reservation cancellation function - Users can log in to their account to cancel the reservation  
-
-* Notice  
-1. Notice if there are no seats available at the desired date and time - "Not Available" / "Search for another date and time"→ _Not implemented yet_
-2. When reservation is complete - "Reservation has been completed for date/time/person"  
-3. When canceling a reservation - "Cancellation is confirmed"    
-
+#### [ Restaurant table reservation service ]
+- Developed origin function
+1. Added chaing booking menu  
+2. Partial updated of personal information(email/name/contact) and Date and Time input 
+    
+- Implemented new function
+1. Added English/German language selection function  
+2. Added function to save table reservation information(book.csv)
 ---
+##### German
+<img width="370" alt="1" src="https://user-images.githubusercontent.com/69658240/169291464-67efd1cb-1202-4afb-a2dc-335c9bd8fd50.png">  
 
-### Developed function (18.05.2022)
+---  
+##### English
+
